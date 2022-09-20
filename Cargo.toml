@@ -1,0 +1,16 @@
+[package]
+name = "trois"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+trois_http = { path = "./trois_http" }
+trois_https = { path = "./trois_https" }
+trois_auth = { path = "./trois_auth" }
+
+[workspace]
+members = [
+    "trois_http",
+    "trois_https",
+    "trois_auth"
+]
