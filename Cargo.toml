@@ -7,10 +7,12 @@ edition = "2021"
 trois_http = { path = "./trois_http" }
 trois_https = { path = "./trois_https" }
 trois_auth = { path = "./trois_auth" }
+trois_middleware = { path = "./trois_middleware" }
 
 [workspace]
 members = [
     "trois_http",
     "trois_https",
-    "trois_auth"
+    "trois_auth",
+    "trois_middleware"
 ]

@@ -13,27 +13,50 @@ impl Context {
         }
     }
 
-    pub fn set_req(&mut self, req: String) {
-        self.req.set_raw_str(&req);
+    pub fn set_req(&mut self, req: &[u8; 1024], size: usize) {
+        self.req.parse(&req.to_vec(), size);
+    }
+
+    pub fn set_body(&mut self, body: &[u8]) {
+        self.res.body = body.to_vec();
     }
 
     pub fn get_raw_req(&self) -> String {
-        self.req.raw_str.clone()
+        match self.req.raw_str.clone() {
+            Some(res) => res,
+            None => "".to_owned(),
+        }
+    }
+
+    pub fn get_method(&self) -> String {
+        match self.req.method.clone() {
+            Some(res) => res,
+            None => "".to_owned(),
+        }
+    }
+
+    pub fn get_protocol(&self) -> String {
+        match self.req.protocol.clone() {
+            Some(res) => res,
+            None => "".to_owned(),
+        }
     }
 
     pub fn get_hostname(&self) -> String {
-        self.req.hostname.clone()
+        match self.req.hostname.clone() {
+            Some(res) => res,
+            None => "".to_owned(),
+        }
     }
 
     pub fn get_path(&self) -> String {
-        self.req.path.clone()
+        match self.req.path.clone() {
+            Some(res) => res,
+            None => "".to_owned(),
+        }
     }
 
-    pub fn parse_req(&self) {
-
-    }
-
-    pub fn build_res(&self) -> String {
-        "".to_owned()
+    pub fn build_res(&self) -> Vec<u8> {
+        self.res.build(&self.req)
     }
 }

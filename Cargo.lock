@@ -9,6 +9,7 @@ dependencies = [
  "trois_auth",
  "trois_http",
  "trois_https",
+ "trois_middleware",
 ]
 
 [[package]]
@@ -21,4 +22,8 @@ version = "0.1.0"
 
 [[package]]
 name = "trois_https"
+version = "0.1.0"
+
+[[package]]
+name = "trois_middleware"
 version = "0.1.0"
