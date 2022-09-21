@@ -46,6 +46,6 @@ fn main() {
         .listen("127.0.0.1:9888")
     {
         Ok(_) => (),
-        Err(e) => panic!("{}", e),
+        Err(e) => eprintln!("{}", e),
     }
 }
