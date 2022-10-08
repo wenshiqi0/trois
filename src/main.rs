@@ -42,6 +42,10 @@ fn default_body(ctx: &mut Context) -> Result<(), String> {
 fn main() {
     let app = Application::new();
     match app
+        .middleware(|ctx| {
+            println!("{}", ctx.get_method());
+            Ok(())
+        })
         .middleware(default_body)
         .listen("127.0.0.1:9888")
     {
